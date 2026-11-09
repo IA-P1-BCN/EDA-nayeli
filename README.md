@@ -4,6 +4,15 @@ Análisis exploratorio de datos sobre la **representación de las mujeres en tec
 
 > ⚠️ Los datos miden **representación** (quién trabaja en tech), no **contratación** directa. Ver apartado *Limitaciones*.
 
+## 📦 Entregables
+| Entregable | Dónde está |
+|---|---|
+| **Notebook** con el análisis paso a paso | `notebooks/eda_mujeres_tech.ipynb` |
+| **Informe ejecutivo** (para un público no técnico) | `reports/informe_ejecutivo.md` · figuras en `reports/figures/` |
+| **README** (este archivo) | `README.md` |
+| **Dependencias** para reproducir el análisis | `requirements.txt` |
+| **Funciones de limpieza reutilizables** (y sus tests) | `src/cleaning.py` · `tests/` |
+
 ## ❓ Preguntas de partida
 1. ¿Qué % de especialistas TIC son mujeres en España frente a la UE, y cómo ha evolucionado desde 2004? *(Eurostat)*
 2. ¿Los países con plantillas TIC más jóvenes tienen más mujeres? *(Eurostat, a nivel de país)*
@@ -12,14 +21,17 @@ Análisis exploratorio de datos sobre la **representación de las mujeres en tec
 5. ¿Coincide el % de mujeres de la encuesta con el de Eurostat país por país? *(merge de ambas fuentes)*
 
 ## 🗂️ Origen de los datos
-| Fuente | Qué aporta | Cómo obtenerla |
+| Fuente | Qué aporta | Enlace de descarga |
 |---|---|---|
-| **Eurostat** – `isoc_sks_itsps`, `isoc_sks_itspa`, `isoc_sks_itspe` | % de especialistas TIC por sexo, edad y nivel educativo, por país y año | Base de datos de Eurostat → descargar en formato **TSV** → guardar en `data/raw/` |
-| **Kaggle ML & DS Survey 2022** | Microdatos de profesionales: género, edad, país, experiencia, rol, salario | Descargar el CSV de Kaggle → guardar en `data/raw/` |
+| **Eurostat** `isoc_sks_itsps` | % de especialistas TIC por **sexo**, por país y año | [Descargar TSV](https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_sks_itsps?format=TSV) |
+| **Eurostat** `isoc_sks_itspa` | % de especialistas TIC por **edad**, por país y año | [Descargar TSV](https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_sks_itspa?format=TSV) |
+| **Eurostat** `isoc_sks_itspe` | % de especialistas TIC por **educación**, por país y año | [Descargar TSV](https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_sks_itspe?format=TSV) |
+| **Kaggle ML & DS Survey 2022** | Microdatos de profesionales: género, edad, país, experiencia, rol, salario | [Kaggle Survey 2022](https://www.kaggle.com/competitions/kaggle-survey-2022/data) · requiere cuenta de Kaggle |
 
-Nombres de archivo esperados (ajústalos en el notebook si usas otros):
+Descarga los archivos y guárdalos en `data/raw/` con estos nombres (renombra si hace falta):
+
 - `data/raw/isoc_sks_itsps.tsv`, `data/raw/isoc_sks_itspa.tsv`, `data/raw/isoc_sks_itspe.tsv`
-- `data/raw/kaggle_survey_responses.csv`
+- `data/raw/kaggle_survey_responses.csv` ← en Kaggle el archivo se llama `kaggle_survey_2022_responses.csv`
 
 ## ⚙️ Instalación
 ```bash
@@ -44,7 +56,7 @@ data/processed/  datos limpios
 notebooks/       notebook del análisis
 src/cleaning.py  funciones de limpieza reutilizables
 tests/           tests con pytest
-reports/         informe ejecutivo (PDF)
+reports/         informe ejecutivo (Markdown, exportable a PDF)
 ```
 
 ## ⚠️ Limitaciones
@@ -56,4 +68,4 @@ reports/         informe ejecutivo (PDF)
 - Los datos de salario de juniors tienen pocas respuestas, sobre todo de mujeres.
 
 ## 👤 Autoría
-Proyecto realizado para el reto EDA. *(añade tu nombre y fecha)*
+Proyecto realizado para el reto EDA. *(Nayeli Córdova Mendoza — noviembre de 2026)*

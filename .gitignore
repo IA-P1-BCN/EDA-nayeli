@@ -1,0 +1,21 @@
+# Entornos virtuales
+.venv/
+venv/
+env/
+
+# Datos crudos (no se suben a Git)
+data/raw/
+
+# Archivos de macOS
+.DS_Store
+
+# Caché de Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Checkpoints de Jupyter
+.ipynb_checkpoints/
+
+# Caché de pytest
+.pytest_cache/
